@@ -1,0 +1,92 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "strawberry",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#raw_types"
+		},
+		{
+			"include": "#number"
+		},
+		{
+			"include": "#constant"
+		},
+		{
+			"include": "#comments"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.strawberry",
+				"match": "\\b(if|then|else|while|return)\\b"
+			},{
+			  "match": "\\b(class|function|fun|fn|null|inherits|let|new)\\b",
+			  "name": "keyword.strawberry"
+			}
+		]
+		},
+		"strings": {
+			"name": "string.quoted.double.strawberry",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.strawberry",
+					"match": "\\\\."
+				}
+			]
+		},
+		"raw_types": {
+			"match": "\\b(Int|Bool|String|Object)\\b",
+			"name": ".type.primitive.strawberry"
+		},
+		"number": {
+			"match": "(?x)        # turn on extended mode\n  -?        # an optional minus\n  (?:\n    0       # a zero\n    |       # ...or...\n    [1-9]   # a 1-9 character\n    \\d*     # followed by zero or more digits\n  )\n  (?:\n    (?:\n      \\.    # a period\n      \\d+   # followed by one or more digits\n    )?\n    (?:\n      [eE]  # an e character\n      [+-]? # followed by an option +/-\n      \\d+   # followed by one or more digits\n    )?      # make exponent optional\n  )?        # make decimal portion optional",
+			"name": "strawberry.number"
+		},
+		"constant": {
+			"match": "\\b(?:true|false)\\b",
+			"name": "constant.language.json"
+		},
+		"comments": {
+			"patterns": [
+				{
+					"begin": "/\\*\\*(?!/)",
+					
+					"end": "\\*/",
+					"name": "comment.block.documentation.strawberry"
+				},
+				{
+					"begin": "/\\*",
+					"end": "\\*/",
+					"name": "comment.block.strawberry"
+				},
+				{
+					"match": "(//).*$\\n?",
+					"name": "comment.line.double-slash.strawberry"
+				}
+			]
+		},
+		"class": {
+			"patterns":[
+				{
+					"match": "class",
+					"name":  "storage.type.cool"
+				},
+				{
+					"match": "[A-Z][A-Za-z0-9_]*",
+					"name":  "entity.name.type.class.cool"
+				}
+			]
+		  }
+		
+	},
+	"scopeName": "source.st"
+}

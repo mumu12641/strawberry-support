@@ -1,0 +1,29 @@
+{
+  "name": "strawberry-support",
+  "displayName": "strawberry-support",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.79.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mumu12641/strawberry-support.git"
+  },
+  "contributes": {
+    "languages": [{
+      "id": "strawberry",
+      "aliases": ["strawberry", "strawberry"],
+      "extensions": [".st"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "strawberry",
+      "scopeName": "source.st",
+      "path": "./syntaxes/strawberry.tmLanguage.json"
+    }]
+  }
+}

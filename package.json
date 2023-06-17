@@ -2,8 +2,9 @@
   "name": "strawberry-support",
   "displayName": "strawberry-support",
   "publisher": "muuuuu",
-  "description": "",
+  "description": "A syntax highlighting plugin for strawberry programming language.",
   "version": "0.0.1",
+  "icon": "logo.png",
   "engines": {
     "vscode": "^1.79.0"
   },

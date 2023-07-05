@@ -3,31 +3,30 @@
 	"name": "strawberry",
 	"patterns": [
 		{
+			"include": "#number"
+		},
+		{
 			"include": "#keywords"
 		},
+		{
+			"include": "#class"
+		},
+		{
+			"include":"#identifier"
+		},
+		
 		{
 			"include": "#strings"
 		},
 		{
-			"include": "#raw_types"
-		},
-		{
-			"include": "#number"
-		},
-		{
-			"include": "#constant"
-		},
-		{
 			"include": "#comments"
 		}
+		
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [{
-				"name": "keyword.control.strawberry",
-				"match": "\\b(if|then|else|while|return)\\b"
-			},{
-			  "match": "\\b(class|function|fun|fn|null|inherits|let|new)\\b",
+			  "match": "\\b(function|fun|fn|null|inherits|let|new|public|private|from|import|if|then|else|while|return|for)\\b",
 			  "name": "keyword.strawberry"
 			}
 		]
@@ -43,17 +42,9 @@
 				}
 			]
 		},
-		"raw_types": {
-			"match": "\\b(Int|Bool|String|Object)\\b",
-			"name": ".type.primitive.strawberry"
-		},
 		"number": {
-			"match": "(?x)        # turn on extended mode\n  -?        # an optional minus\n  (?:\n    0       # a zero\n    |       # ...or...\n    [1-9]   # a 1-9 character\n    \\d*     # followed by zero or more digits\n  )\n  (?:\n    (?:\n      \\.    # a period\n      \\d+   # followed by one or more digits\n    )?\n    (?:\n      [eE]  # an e character\n      [+-]? # followed by an option +/-\n      \\d+   # followed by one or more digits\n    )?      # make exponent optional\n  )?        # make decimal portion optional",
-			"name": "strawberry.number"
-		},
-		"constant": {
-			"match": "\\b(?:true|false)\\b",
-			"name": "constant.language.json"
+			"match": "\\b([1-9][0-9]*|0)\\b",
+			"name": "constant.numeric.strawberry"
 		},
 		"comments": {
 			"patterns": [
@@ -78,14 +69,23 @@
 			"patterns":[
 				{
 					"match": "class",
-					"name":  "storage.type.cool"
+					"name":  "storage.type.strawberry"
 				},
 				{
 					"match": "[A-Z][A-Za-z0-9_]*",
-					"name":  "entity.name.type.class.cool"
+					"name":  "entity.name.type.class.strawberry"
 				}
 			]
-		  }
+		},
+		"identifier":{
+			"patterns": [
+				{
+					"match": "[a-z][A-Za-z0-9_]*",
+					"name":  "variable.strawberry"
+				}
+			]
+		}
+
 		
 	},
 	"scopeName": "source.st"

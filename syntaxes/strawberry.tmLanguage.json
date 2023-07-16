@@ -26,8 +26,20 @@
 	"repository": {
 		"keywords": {
 			"patterns": [{
-			  "match": "\\b(function|fun|fn|null|inherits|let|new|public|private|from|import|if|then|else|while|return|for)\\b",
-			  "name": "keyword.strawberry"
+			  "match": "\\b(function|fun|fn|inherits|let|new|from|import|__asm__)\\b",
+			  "name": "keyword.other.strawberry"
+			},
+			{
+				"match": "\\b(null|if|then|else|while|return|for)\\b",
+				"name": "keyword.control.strawberry"
+			},
+			{
+				"match":"\\b(private|public)\\b",
+				"name": "storage.modifier.strawberry"
+			},
+			{
+				"match":"\\b(true|flase)\\b",
+				"name": "constant.language.strawberry"
 			}
 		]
 		},
@@ -81,7 +93,7 @@
 			"patterns": [
 				{
 					"match": "[a-z][A-Za-z0-9_]*",
-					"name":  "variable.strawberry"
+					"name":  "variable.other.strawberry"
 				}
 			]
 		}
